@@ -23,9 +23,6 @@ inputs@{ config, pkgs, lib ? pkgs.lib, ... }:
     };
   };
 
-  # Allows packages installed via Nix to integrate with the desktop environment
-  xsession.enable = true;
-
   home.packages = with pkgs; [
     nixgl.nixGLIntel
     nixgl.nixVulkanIntel
