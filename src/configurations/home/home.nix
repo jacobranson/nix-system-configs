@@ -38,7 +38,6 @@ inputs@{ config, pkgs, lib ? pkgs.lib, ... }:
     man
     which
     perl
-    comma
     fd
     silver-searcher
     ripgrep
