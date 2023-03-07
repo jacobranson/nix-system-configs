@@ -11,11 +11,6 @@ inputs@{ config, pkgs, lib ? pkgs.lib, ... }:
     XDG_DATA_HOME   = "${config.home.homeDirectory}/.local/share";
     XDG_DATA_DIRS   =
       "${config.home.homeDirectory}/.nix-profile/share:\${XDG_DATA_DIRS}";
-
-    PATH = [
-      "${config.home.homeDirectory}/.nix-profile/bin"
-      "\${XDG_BIN_HOME}"
-    ];
   };
 
   # Terminal shell
