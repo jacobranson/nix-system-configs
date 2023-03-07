@@ -1,0 +1,3 @@
+# NixOS Onboarding Guide
+
+## TODO
