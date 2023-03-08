@@ -13,7 +13,6 @@ inputs@{ config, pkgs, lib ? pkgs.lib, ... }:
       "${config.home.homeDirectory}/.nix-profile/share:\${XDG_DATA_DIRS}";
   };
 
-  # Terminal shell
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -43,23 +42,6 @@ inputs@{ config, pkgs, lib ? pkgs.lib, ... }:
     };
   };
 
-  programs.nushell = {
-    enable = true;
-  };
-
-  # Terminal prompt
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-    enableNushellIntegration = true;
-  };
-
-  # Terminal fuzzy finder
-  programs.fzf = {
-    enable = true;
-  };
-
-  # Version control
   programs.git = {
     enable = true;
     lfs.enable = true;
@@ -72,13 +54,11 @@ inputs@{ config, pkgs, lib ? pkgs.lib, ... }:
     };
   };
 
-  # Alternative to `ls`
   programs.exa = {
     enable = true;
     enableAliases = true;
   };
 
-  # Alternative to `cat`
   programs.bat = {
     enable = true;
     config = {
@@ -86,31 +66,23 @@ inputs@{ config, pkgs, lib ? pkgs.lib, ... }:
     };
   };
 
-  # Alternative to `top`
-  programs.htop = {
-    enable = true;
-  };
-
-  programs.nix-index = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+  programs.nix-index.enable = true;
+  programs.direnv.enable = true;
+  programs.nushell.enable = true;
+  programs.starship.enable = true;
+  programs.zellij.enable = true;
+  programs.zoxide.enable = true;
+  programs.helix.enable = true;
+  programs.gitui.enable = true;
 
   home.packages = with pkgs; [
-    # nix
-    comma direnv
-    # basic utilities
+    comma rnix-lsp
     coreutils findutils gnugrep gnused gawk
-    perl less which man wget curlFull
-    ## RUST
-    # workflow
-    zellij hunter zoxide gitui
-    # basic utils
-    (uutils-coreutils.override { prefix = ""; }) exa bat fd sd
-    ripgrep frawk procs bottom dust dog rargs hck freshfetch
-    # other utils
-    gitoxide jql cb grex xh skim eva cpc just rnr
-    navi tealdeer hyperfine bandwhich hexyl hexyl 
+    perl less which wget curlFull dig
+    httpie jq grex eva skim
+    fd sd ripgrep procs bottom
+    du-dust rargs neofetch
+    navi tealdeer hyperfine bandwhich hexyl 
   ] ++ (lib.lists.optionals (stdenv.system == "x86_64-linux") [
     nixgl.nixGLIntel nixgl.nixVulkanIntel
   ]);
