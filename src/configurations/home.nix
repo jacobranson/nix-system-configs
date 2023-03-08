@@ -43,10 +43,15 @@ inputs@{ config, pkgs, lib ? pkgs.lib, ... }:
     };
   };
 
+  programs.nushell = {
+    enable = true;
+  };
+
   # Terminal prompt
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
+    enableNushellIntegration = true;
   };
 
   # Terminal fuzzy finder
@@ -90,4 +95,23 @@ inputs@{ config, pkgs, lib ? pkgs.lib, ... }:
     enable = true;
     enableZshIntegration = true;
   };
+
+  home.packages = with pkgs; [
+    # nix
+    comma direnv
+    # basic utilities
+    coreutils findutils gnugrep gnused gawk
+    perl less which man wget curlFull
+    ## RUST
+    # workflow
+    zellij hunter zoxide gitui
+    # basic utils
+    (uutils-coreutils.override { prefix = ""; }) exa bat fd sd
+    ripgrep frawk procs bottom dust dog rargs hck freshfetch
+    # other utils
+    gitoxide jql cb grex xh skim eva cpc just rnr
+    navi tealdeer hyperfine bandwhich hexyl hexyl 
+  ] ++ (lib.lists.optionals (stdenv.system == "x86_64-linux") [
+    nixgl.nixGLIntel nixgl.nixVulkanIntel
+  ]);
 }
