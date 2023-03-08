@@ -72,7 +72,12 @@ inputs@{ config, pkgs, lib ? pkgs.lib, ... }:
   programs.starship.enable = true;
   programs.zellij.enable = true;
   programs.zoxide.enable = true;
-  programs.helix.enable = true;
+  programs.helix = {
+    enable = true;
+    settings = {
+      theme = "onedark";
+    };
+  };
   programs.gitui.enable = true;
 
   home.packages = with pkgs; [
