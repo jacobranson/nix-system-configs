@@ -10,8 +10,7 @@ inputs@{ config, pkgs, lib ? pkgs.lib, ... }:
     '';
     sessionVariables = {
       "SHELL" = "/etc/profiles/per-user/jacobranson/bin/zsh";
-      "PAGER" = "/etc/profiles/per-user/jacobranson/bin/moar";
-      "EDITOR" = "/etc/profiles/per-user/jacobranson/bin/nvim";
+      "EDITOR" = "/etc/profiles/per-user/jacobranson/bin/hx";
     };
     shellAliases = {
       switch =

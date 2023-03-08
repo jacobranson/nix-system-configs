@@ -14,8 +14,7 @@ inputs@{ config, pkgs, lib ? pkgs.lib, ... }:
   programs.zsh = {
     sessionVariables = {
       "SHELL" = "${config.home.homeDirectory}/.nix-profile/bin/zsh";
-      "PAGER" = "${config.home.homeDirectory}/.nix-profile/bin/moar";
-      "EDITOR" = "${config.home.homeDirectory}/.nix-profile/bin/nvim";
+      "EDITOR" = "${config.home.homeDirectory}/.nix-profile/bin/hx";
     };
     shellAliases = {
       switch =
