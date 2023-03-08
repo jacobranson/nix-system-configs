@@ -22,23 +22,4 @@ inputs@{ config, pkgs, lib ? pkgs.lib, ... }:
         "home-manager switch --flake ${config.xdg.configHome}/nix-system";
     };
   };
-
-  home.packages = with pkgs; [
-    nixgl.nixGLIntel
-    nixgl.nixVulkanIntel
-    comma
-    coreutils
-    findutils
-    gnugrep
-    gnused
-    gawk
-    man
-    which
-    perl
-    fd
-    silver-searcher
-    ripgrep
-    moar
-    neofetch
-  ];
 })

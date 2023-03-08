@@ -18,21 +18,4 @@ inputs@{ config, pkgs, lib ? pkgs.lib, ... }:
         "darwin-rebuild switch --flake ${config.xdg.configHome}/nix-system";
     };
   };
-
-  home.packages = with pkgs; [
-    comma
-    coreutils
-    findutils
-    gnugrep
-    gnused
-    gawk
-    man
-    which
-    perl
-    fd
-    silver-searcher
-    ripgrep
-    moar
-    neofetch
-  ];
 })
