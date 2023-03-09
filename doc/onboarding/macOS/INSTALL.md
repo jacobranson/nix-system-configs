@@ -41,8 +41,6 @@ Run the following commands in the Terminal app to install Nix.
 ```bash
 $ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install macos
 $ . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-$ sudo chown $USER ~/.nix-channels
-$ nix-channel --update
 ```
 
 ## Install Nix Darwin
@@ -113,7 +111,6 @@ $ ls -la /etc/**/*.orig
 $ sudo rm /etc/**/*.orig
 $ rm ~/.gitconfig
 $ rm -rf ~/result
-$ sudo reboot
 ```
 
 ## Build Nix Index
