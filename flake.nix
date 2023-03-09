@@ -50,14 +50,14 @@
   }: {
 
     darwinConfigurations = import ./src/configurations/darwin { # for macOS
-      pkgs = inputs.nixpkgs-stable-darwin.legacypkgs.aarch64-darwin;
+      pkgs = inputs.nixpkgs-stable-darwin.legacyPackages.aarch64-darwin;
       darwin = inputs.darwin;
       home-manager = inputs.home-manager-nixpkgs-stable-darwin;
     };
 
     homeConfigurations = import ./src/configurations/home { # for non-NixOS
       pkgs =
-        (inputs.nixpkgs-unstable.legacypkgs.x86_64-linux.extend nixgl.overlay);
+        (inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.extend nixgl.overlay);
       home-manager = inputs.home-manager-nixpkgs-unstable;
     };
 
