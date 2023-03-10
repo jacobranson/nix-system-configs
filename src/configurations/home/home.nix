@@ -7,6 +7,7 @@ inputs@{ config, pkgs, lib ? pkgs.lib, ... }:
   programs.kitty = {
     enable = true;
     settings = {
+      shell = "${config.home.homeDirectory}/.nix-profile/bin/zsh";
       confirm_os_window_close = 0;
     };
   };
