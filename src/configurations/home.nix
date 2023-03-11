@@ -82,8 +82,7 @@ inputs@{ config, pkgs, lib ? pkgs.lib, ... }:
 
   home.packages = with pkgs; [
     comma rnix-lsp
-    coreutils findutils gnugrep gnused gawk
-    perl less which wget curlFull dig
+    gnugrep gnused gawk perl
     httpie jq grex eva skim
     fd sd ripgrep procs bottom
     du-dust rargs neofetch
